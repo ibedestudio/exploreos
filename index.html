@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows XP Replica</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="desktop">
+        <!-- Desktop Icons -->
+        <div class="desktop-icon" data-window="my-computer">
+            <img src="img/windows98-icons/ico/computer_2_cool.ico" alt="My Computer">
+            <span>My Computer</span>
+        </div>
+        <div class="desktop-icon" data-window="recycle-bin">
+            <img src="img/windows98-icons/ico/recycle_bin_empty.ico" alt="Recycle Bin">
+            <span>Recycle Bin</span>
+        </div>
+        <div class="desktop-icon" data-window="notepad">
+            <img src="img/windows98-icons/ico/notepad.ico" alt="Notepad">
+            <span>Notepad</span>
+        </div>
+        <div class="desktop-icon" data-window="browser">
+            <img src="img/windows98-icons/ico/msie2.ico" alt="Internet Explorer">
+            <span>Internet Explorer</span>
+        </div>
+        <div class="desktop-icon" data-window="rpg-game">
+            <img src="img/windows98-icons/ico/game.ico" alt="RPG Game">
+            <span>RPG Game</span>
+        </div>
+
+        <!-- Windows -->
+        <div class="window" id="my-computer">
+            <div class="window-header">
+                <div class="window-title">
+                    <img src="img/windows98-icons/ico/computer_explorer.ico" alt="My Computer">
+                    My Computer
+                </div>
+                <div class="window-controls">
+                    <button class="minimize">_</button>
+                    <button class="maximize">□</button>
+                    <button class="close">×</button>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="folder-item">
+                    <img src="img/windows98-icons/ico/cd_drive.ico" alt="CD Drive">
+                    <span>CD Drive (D:)</span>
+                </div>
+                <div class="folder-item">
+                    <img src="img/windows98-icons/ico/hard_disk_drive.ico" alt="Local Disk">
+                    <span>Local Disk (C:)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="window" id="recycle-bin">
+            <div class="window-header">
+                <div class="window-title">
+                    <img src="img/windows98-icons/ico/recycle_bin_empty.ico" alt="Recycle Bin">
+                    Recycle Bin
+                </div>
+                <div class="window-controls">
+                    <button class="minimize">_</button>
+                    <button class="maximize">□</button>
+                    <button class="close">×</button>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="recycler-empty-message">
+                    <img src="img/windows98-icons/ico/recycle_bin_empty.ico" alt="Empty Bin">
+                    <p>Recycle Bin is empty</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="window" id="notepad">
+            <div class="window-header">
+                <div class="window-title">
+                    <img src="img/windows98-icons/ico/notepad.ico" alt="Notepad">
+                    Untitled - Notepad
+                </div>
+                <div class="window-controls">
+                    <button class="minimize">_</button>
+                    <button class="maximize">□</button>
+                    <button class="close">×</button>
+                </div>
+            </div>
+            <div class="window-content">
+                <textarea class="notepad-content"></textarea>
+            </div>
+        </div>
+
+        <div class="window" id="browser">
+            <div class="window-header">
+                <div class="window-title">
+                    <img src="img/windows98-icons/ico/msie2.ico" alt="Internet Explorer">
+                    Internet Explorer
+                </div>
+                <div class="window-controls">
+                    <button class="minimize">_</button>
+                    <button class="maximize">□</button>
+                    <button class="close">×</button>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="browser-toolbar">
+                    <button class="browser-btn back" title="Back">
+                        <img src="img/windows98-icons/ico/back.ico" alt="Back">
+                    </button>
+                    <button class="browser-btn forward" title="Forward">
+                        <img src="img/windows98-icons/ico/forward.ico" alt="Forward">
+                    </button>
+                    <button class="browser-btn refresh" title="Refresh">
+                        <img src="img/windows98-icons/ico/refresh.ico" alt="Refresh">
+                    </button>
+                    <button class="browser-btn home" title="Home">
+                        <img src="img/windows98-icons/ico/home.ico" alt="Home">
+                    </button>
+                    <div class="address-bar">
+                        <span>Address</span>
+                        <input type="text" id="urlInput" value="https://www.google.com">
+                        <button class="go-btn">Go</button>
+                    </div>
+                </div>
+                <div class="browser-content">
+                    <iframe id="browserFrame" 
+                        src="https://www.google.com/webhp?igu=1"
+                        allow="fullscreen"
+                        referrerpolicy="no-referrer">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tambahkan window My Documents -->
+        <div class="window" id="my-documents">
+            <div class="window-header">
+                <div class="window-title">
+                    <img src="img/windows98-icons/ico/directory_open.ico" alt="My Documents">
+                    My Documents
+                </div>
+                <div class="window-controls">
+                    <button class="minimize">_</button>
+                    <button class="maximize">□</button>
+                    <button class="close">×</button>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="folder-item">
+                    <img src="img/windows98-icons/ico/notepad_file.ico" alt="Text Document">
+                    <span>Document.txt</span>
+                </div>
+                <div class="folder-item">
+                    <img src="img/windows98-icons/ico/image_file.ico" alt="Image">
+                    <span>Picture.jpg</span>
+                </div>
+                <div class="folder-item">
+                    <img src="img/windows98-icons/ico/word_document.ico" alt="Word Document">
+                    <span>Report.doc</span>
+                </div>
+                <div class="folder-item">
+                    <img src="img/windows98-icons/ico/excel_document.ico" alt="Excel Document">
+                    <span>Spreadsheet.xls</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tambahkan window game -->
+        <div class="window" id="rpg-game">
+            <div class="window-header">
+                <div class="window-title">
+                    <img src="img/windows98-icons/ico/game.ico" alt="RPG Game">
+                    RPG Game
+                </div>
+                <div class="window-controls">
+                    <button class="minimize">_</button>
+                    <button class="maximize">□</button>
+                    <button class="close">×</button>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="game-container">
+                    <canvas id="gameCanvas"></canvas>
+                    <div class="game-controls">
+                        <div class="stats">
+                            <div>HP: <span id="playerHP">100</span>/100</div>
+                            <div>Level: <span id="playerLevel">1</span></div>
+                            <div>EXP: <span id="playerExp">0</span></div>
+                        </div>
+                        <div class="inventory">
+                            <button id="usePotion">Use Potion (HP +30)</button>
+                            <span id="potionCount">3</span> potions left
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tambahkan window Control Panel -->
+        <div class="window" id="control-panel">
+            <div class="window-header">
+                <div class="window-title">
+                    <img src="img/windows98-icons/ico/settings_gear.ico" alt="Control Panel">
+                    Control Panel
+                </div>
+                <div class="window-controls">
+                    <button class="minimize">_</button>
+                    <button class="maximize">□</button>
+                    <button class="close">×</button>
+                </div>
+            </div>
+            <div class="window-content">
+                <div class="control-panel-grid">
+                    <!-- Display Settings -->
+                    <div class="control-panel-item" data-settings="display">
+                        <img src="img/windows98-icons/ico/display_properties.ico" alt="Display">
+                        <span>Display</span>
+                    </div>
+                    <!-- Sound Settings -->
+                    <div class="control-panel-item" data-settings="sound">
+                        <img src="img/windows98-icons/ico/sound_properties.ico" alt="Sound">
+                        <span>Sound</span>
+                    </div>
+                    <!-- Theme Settings -->
+                    <div class="control-panel-item" data-settings="theme">
+                        <img src="img/windows98-icons/ico/themes.ico" alt="Theme">
+                        <span>Theme</span>
+                    </div>
+                    <!-- Mouse Settings -->
+                    <div class="control-panel-item" data-settings="mouse">
+                        <img src="img/windows98-icons/ico/mouse_properties.ico" alt="Mouse">
+                        <span>Mouse</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Dialog Templates -->
+        <div class="dialog" id="display-settings" style="display: none;">
+            <div class="dialog-header">
+                <span>Display Properties</span>
+                <button class="close-dialog">×</button>
+            </div>
+            <div class="dialog-content">
+                <div class="settings-group">
+                    <h3>Background</h3>
+                    <select id="wallpaper-select">
+                        <option value="default">Windows XP Default</option>
+                        <option value="blue">Blue</option>
+                        <option value="green">Green</option>
+                        <option value="custom">Custom Color</option>
+                    </select>
+                    <input type="color" id="background-color" style="display: none;">
+                </div>
+                <div class="settings-group">
+                    <h3>Screen Resolution</h3>
+                    <select id="resolution-select">
+                        <option value="800x600">800 x 600</option>
+                        <option value="1024x768">1024 x 768</option>
+                        <option value="1280x720">1280 x 720</option>
+                        <option value="1920x1080">1920 x 1080</option>
+                    </select>
+                </div>
+            </div>
+            <div class="dialog-footer">
+                <button class="apply-btn">Apply</button>
+                <button class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+
+        <!-- Taskbar -->
+        <div class="taskbar">
+            <button class="start-button">
+                <img src="img/windows98-icons/ico/windows.ico" alt="Start">
+                Start
+            </button>
+            <div class="taskbar-programs">
+                <!-- Active windows will appear here -->
+            </div>
+            <div class="taskbar-right">
+                <div class="system-tray">
+                    <img src="img/windows98-icons/ico/loudspeaker_rays.ico" alt="Volume">
+                    <img src="img/windows98-icons/ico/network_normal_two_pcs.ico" alt="Network">
+                </div>
+                <span class="time" id="clock">12:00 AM</span>
+            </div>
+        </div>
+
+        <!-- Start Menu (Hidden by default) -->
+        <div class="start-menu" id="startMenu">
+            <div class="user-info">
+                <img src="img/user-ibedes.png" alt="User">
+                <span>User Name</span>
+            </div>
+            <div class="menu-items">
+                <div class="menu-item" data-window="my-computer">
+                    <img src="img/windows98-icons/ico/computer_explorer.ico" alt="My Computer">
+                    <span>My Computer</span>
+                </div>
+                <div class="menu-item" data-window="my-documents">
+                    <img src="img/windows98-icons/ico/directory_open.ico" alt="My Documents">
+                    <span>My Documents</span>
+                </div>
+                <div class="menu-item">
+                    <img src="img/windows98-icons/ico/directory_pictures.ico" alt="My Pictures">
+                    <span>My Pictures</span>
+                </div>
+                <div class="menu-item">
+                    <img src="img/windows98-icons/ico/settings_gear.ico" alt="Control Panel">
+                    <span>Control Panel</span>
+                </div>
+                <div class="menu-separator"></div>
+                <div class="menu-item">
+                    <img src="img/windows98-icons/ico/shut_down_normal.ico" alt="Shut Down">
+                    <span>Shut Down</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <!-- Tambahkan preload audio -->
+    <audio id="startupSound" preload="auto" src="sounds/startup.wav"></audio>
+    <audio id="shutdownSound" preload="auto" src="sounds/shutdown.wav"></audio>
+    <audio id="errorSound" preload="auto" src="sounds/error.wav"></audio>
+    <audio id="notifySound" preload="auto" src="sounds/notify.wav"></audio>
+    <audio id="clickSound" preload="auto" src="sounds/click.wav"></audio>
+    <audio id="minimizeSound" preload="auto" src="sounds/minimize.wav"></audio>
+    <audio id="maximizeSound" preload="auto" src="sounds/maximize.wav"></audio>
+    <audio id="menuOpenSound" preload="auto" src="sounds/menu_open.wav"></audio>
+    <audio id="recycleSound" preload="auto" src="sounds/recycle.wav"></audio>
+    <audio id="restoreSound" preload="auto" src="sounds/restore.wav"></audio>
+</body>
+</html> 
