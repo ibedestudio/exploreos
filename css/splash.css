@@ -13,8 +13,11 @@
 }
 
 .splash-content {
-    text-align: center;
-    animation: fadeIn 0.5s ease-out;
+    display: flex;
+    justify-content: center; /* Mengatur posisi horizontal */
+    align-items: center;    /* Mengatur posisi vertikal (opsional) */
+    flex-direction: column; /* Jika ada elemen lain, susun secara vertikal */
+    height: 100%; /* Tambahkan jika ingin center secara vertikal penuh */
 }
 
 .splash-content img {
