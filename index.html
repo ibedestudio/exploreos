@@ -4,30 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Windows XP Replica</title>
-    <link rel="stylesheet" href="style.css">
+    <!-- Load CSS in correct order -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/splash.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/windows.css">
+    <link rel="stylesheet" href="css/desktop.css">
+    <link rel="stylesheet" href="css/taskbar.css">
+    <link rel="stylesheet" href="css/windows-apps.css">
+    <link rel="stylesheet" href="css/context-menu.css">
+    <link rel="stylesheet" href="css/folders.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
+    <div id="splash-screen" class="splash-screen">
+        <div class="splash-content">
+            <img src="img/windows98-icons/ico/windows.ico" alt="Windows Logo">
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="login-screen" class="login-screen" style="display: none;">
+        <div class="login-box">
+            <img src="img/user-ibedes.png" alt="User" class="user-avatar">
+            <h2>Welcome</h2>
+            <div class="user-select">
+                <div class="user-account selected">
+                    <img src="img/user-ibedes.png" alt="User">
+                    <span>User</span>
+                </div>
+                <div class="user-account">
+                    <img src="img/windows98-icons/ico/user.ico" alt="Guest">
+                    <span>Guest</span>
+                </div>
+            </div>
+            <div class="password-input">
+                <input type="password" placeholder="Password" id="password">
+                <button id="login-btn">→</button>
+            </div>
+            <div class="login-options">
+                <button id="shutdown-btn">
+                    <img src="img/windows98-icons/ico/shut_down_normal.ico" alt="Shutdown">
+                    Turn off computer
+                </button>
+            </div>
+        </div>
+    </div>
+
     <div class="desktop">
-        <!-- Desktop Icons -->
-        <div class="desktop-icon" data-window="my-computer">
-            <img src="img/windows98-icons/ico/computer_2_cool.ico" alt="My Computer">
-            <span>My Computer</span>
-        </div>
-        <div class="desktop-icon" data-window="recycle-bin">
-            <img src="img/windows98-icons/ico/recycle_bin_empty.ico" alt="Recycle Bin">
-            <span>Recycle Bin</span>
-        </div>
-        <div class="desktop-icon" data-window="notepad">
-            <img src="img/windows98-icons/ico/notepad.ico" alt="Notepad">
-            <span>Notepad</span>
-        </div>
-        <div class="desktop-icon" data-window="browser">
-            <img src="img/windows98-icons/ico/msie2.ico" alt="Internet Explorer">
-            <span>Internet Explorer</span>
-        </div>
-        <div class="desktop-icon" data-window="rpg-game">
-            <img src="img/windows98-icons/ico/game.ico" alt="RPG Game">
-            <span>RPG Game</span>
+        <div class="desktop-icons-container">
+            <!-- Desktop Icons -->
+            <div class="desktop-icon" data-window="my-computer">
+                <img src="img/windows98-icons/ico/computer_2_cool.ico" alt="My Computer">
+                <span>My Computer</span>
+            </div>
+            <div class="desktop-icon" data-window="recycle-bin">
+                <img src="img/windows98-icons/ico/recycle_bin_empty.ico" alt="Recycle Bin">
+                <span>Recycle Bin</span>
+            </div>
+            <div class="desktop-icon" data-window="notepad">
+                <img src="img/windows98-icons/ico/notepad.ico" alt="Notepad">
+                <span>Notepad</span>
+            </div>
+            <div class="desktop-icon" data-window="browser">
+                <img src="img/windows98-icons/ico/msie1.ico" alt="Internet Explorer">
+                <span>Internet Explorer</span>
+            </div>
+            <div class="desktop-icon" data-window="rpg-game">
+                <img src="img/windows98-icons/ico/game.ico" alt="RPG Game">
+                <span>RPG Game</span>
+            </div>
         </div>
 
         <!-- Windows -->
@@ -95,7 +143,7 @@
         <div class="window" id="browser">
             <div class="window-header">
                 <div class="window-title">
-                    <img src="img/windows98-icons/ico/msie2.ico" alt="Internet Explorer">
+                    <img src="img/windows98-icons/ico/msie1.ico" alt="Internet Explorer">
                     Internet Explorer
                 </div>
                 <div class="window-controls">
@@ -105,31 +153,77 @@
                 </div>
             </div>
             <div class="window-content">
+                <div class="browser-menubar">
+                    <div class="menu-item">File</div>
+                    <div class="menu-item">Edit</div>
+                    <div class="menu-item">View</div>
+                    <div class="menu-item">Go</div>
+                    <div class="menu-item">Favorites</div>
+                    <div class="menu-item">Help</div>
+                </div>
                 <div class="browser-toolbar">
-                    <button class="browser-btn back" title="Back">
-                        <img src="img/windows98-icons/ico/back.ico" alt="Back">
-                    </button>
-                    <button class="browser-btn forward" title="Forward">
-                        <img src="img/windows98-icons/ico/forward.ico" alt="Forward">
-                    </button>
-                    <button class="browser-btn refresh" title="Refresh">
-                        <img src="img/windows98-icons/ico/refresh.ico" alt="Refresh">
-                    </button>
-                    <button class="browser-btn home" title="Home">
-                        <img src="img/windows98-icons/ico/home.ico" alt="Home">
-                    </button>
-                    <div class="address-bar">
-                        <span>Address</span>
-                        <input type="text" id="urlInput" value="https://www.google.com">
+                    <div class="toolbar-group">
+                        <button class="toolbar-btn" disabled>
+                            <img src="img/windows98-icons/ico/back.ico" alt="Back">
+                            <span>Back</span>
+                        </button>
+                        <button class="toolbar-btn" disabled>
+                            <img src="img/windows98-icons/ico/forward.ico" alt="Forward">
+                            <span>Forward</span>
+                        </button>
+                    </div>
+                    <div class="toolbar-separator"></div>
+                    <div class="toolbar-group">
+                        <button class="toolbar-btn">
+                            <img src="img/windows98-icons/ico/stop.ico" alt="Stop">
+                            <span>Stop</span>
+                        </button>
+                        <button class="toolbar-btn">
+                            <img src="img/windows98-icons/ico/refresh.ico" alt="Refresh">
+                            <span>Refresh</span>
+                        </button>
+                        <button class="toolbar-btn">
+                            <img src="img/windows98-icons/ico/home.ico" alt="Home">
+                            <span>Home</span>
+                        </button>
+                    </div>
+                    <div class="toolbar-separator"></div>
+                    <div class="toolbar-group">
+                        <button class="toolbar-btn">
+                            <img src="img/windows98-icons/ico/search_web.ico" alt="Search">
+                            <span>Search</span>
+                        </button>
+                        <button class="toolbar-btn">
+                            <img src="img/windows98-icons/ico/favorites.ico" alt="Favorites">
+                            <span>Favorites</span>
+                        </button>
+                        <button class="toolbar-btn">
+                            <img src="img/windows98-icons/ico/history.ico" alt="History">
+                            <span>History</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="address-bar">
+                    <div class="address-label">Address</div>
+                    <div class="address-input">
+                        <img src="img/windows98-icons/ico/world.ico" alt="Web">
+                        <input type="text" value="https://win98icons.alexmeub.com/">
                         <button class="go-btn">Go</button>
                     </div>
                 </div>
                 <div class="browser-content">
-                    <iframe id="browserFrame" 
-                        src="https://www.google.com/webhp?igu=1"
-                        allow="fullscreen"
-                        referrerpolicy="no-referrer">
-                    </iframe>
+                    <div class="browser-page">
+                        <iframe id="browserFrame" 
+                            src="https://www.google.com/webhp?igu=1" 
+                            frameborder="0"
+                            allowfullscreen
+                            sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                        ></iframe>
+                    </div>
+                </div>
+                <div class="browser-statusbar">
+                    <div class="status-text">Done</div>
+                    <div class="security-zone">Internet</div>
                 </div>
             </div>
         </div>
@@ -148,21 +242,23 @@
                 </div>
             </div>
             <div class="window-content">
-                <div class="folder-item">
-                    <img src="img/windows98-icons/ico/notepad_file.ico" alt="Text Document">
-                    <span>Document.txt</span>
+                <div class="folder-toolbar">
+                    <button class="folder-btn back">
+                        <img src="img/windows98-icons/ico/back.ico" alt="Back">
+                    </button>
+                    <button class="folder-btn forward">
+                        <img src="img/windows98-icons/ico/forward.ico" alt="Forward">
+                    </button>
+                    <button class="folder-btn up">
+                        <img src="img/windows98-icons/ico/up.ico" alt="Up">
+                    </button>
+                    <div class="folder-address">
+                        <span>Address</span>
+                        <input type="text" value="C:\Documents and Settings\User\My Documents" readonly>
+                    </div>
                 </div>
-                <div class="folder-item">
-                    <img src="img/windows98-icons/ico/image_file.ico" alt="Image">
-                    <span>Picture.jpg</span>
-                </div>
-                <div class="folder-item">
-                    <img src="img/windows98-icons/ico/word_document.ico" alt="Word Document">
-                    <span>Report.doc</span>
-                </div>
-                <div class="folder-item">
-                    <img src="img/windows98-icons/ico/excel_document.ico" alt="Excel Document">
-                    <span>Spreadsheet.xls</span>
+                <div class="folder-items">
+                    <!-- Items will be added dynamically -->
                 </div>
             </div>
         </div>
@@ -291,8 +387,10 @@
         <!-- Start Menu (Hidden by default) -->
         <div class="start-menu" id="startMenu">
             <div class="user-info">
-                <img src="img/user-ibedes.png" alt="User">
-                <span>User Name</span>
+                <a href="https://github.com/ibedestudio" target="_blank" class="user-profile">
+                    <img src="img/user-ibedes.png" alt="Ibedes Studio">
+                    <span>Ibedes Studio</span>
+                </a>
             </div>
             <div class="menu-items">
                 <div class="menu-item" data-window="my-computer">
@@ -303,24 +401,27 @@
                     <img src="img/windows98-icons/ico/directory_open.ico" alt="My Documents">
                     <span>My Documents</span>
                 </div>
-                <div class="menu-item">
-                    <img src="img/windows98-icons/ico/directory_pictures.ico" alt="My Pictures">
-                    <span>My Pictures</span>
-                </div>
-                <div class="menu-item">
+                <div class="menu-item" data-window="control-panel">
                     <img src="img/windows98-icons/ico/settings_gear.ico" alt="Control Panel">
                     <span>Control Panel</span>
                 </div>
                 <div class="menu-separator"></div>
-                <div class="menu-item">
+                <div class="menu-item shutdown">
                     <img src="img/windows98-icons/ico/shut_down_normal.ico" alt="Shut Down">
                     <span>Shut Down</span>
                 </div>
             </div>
         </div>
     </div>
-    <script src="script.js"></script>
-    <!-- Tambahkan preload audio -->
+    <!-- Load dependencies first -->
+    <script src="js/sounds.js"></script>
+    <script src="js/WindowManager.js"></script>
+    <script src="js/RecycleBin.js"></script>
+    <script src="js/MyDocuments.js"></script>
+    <script src="js/browser.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/desktop.js"></script>
+    <!-- Load audio elements -->
     <audio id="startupSound" preload="auto" src="sounds/startup.wav"></audio>
     <audio id="shutdownSound" preload="auto" src="sounds/shutdown.wav"></audio>
     <audio id="errorSound" preload="auto" src="sounds/error.wav"></audio>

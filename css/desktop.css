@@ -1,0 +1,148 @@
+/* Desktop Styles - Win98 Style */
+.desktop {
+    height: 100vh;
+    background: #008080; /* Classic Windows 98 teal background */
+    position: relative;
+    overflow: hidden;
+    font-family: 'MS Sans Serif', 'Tahoma', sans-serif;
+}
+
+/* Desktop Icons Container */
+.desktop-icons-container {
+    position: relative;
+    padding: 8px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 75px);
+    gap: 8px;
+    justify-content: start;
+    align-content: start;
+    height: calc(100vh - 28px); /* Account for taskbar */
+}
+
+/* Desktop Icons */
+.desktop-icon {
+    position: relative;
+    width: 75px;
+    height: 75px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    cursor: default;
+}
+
+.desktop-icon img {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 4px;
+    image-rendering: pixelated; /* For crisp pixel art */
+}
+
+.desktop-icon span {
+    color: white;
+    font-size: 11px;
+    text-align: center;
+    line-height: 1.2;
+    max-height: 28px;
+    overflow: hidden;
+    width: 100%;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+}
+
+/* Selection States */
+.desktop-icon:focus {
+    outline: 1px dotted #fff;
+    outline-offset: -1px;
+}
+
+.desktop-icon.selected {
+    background-color: #000080; /* Classic Windows 98 selection blue */
+}
+
+.desktop-icon.selected span {
+    background-color: #000080;
+    color: white;
+}
+
+/* Hover State */
+.desktop-icon:hover:not(.selected) {
+    background-color: rgba(0, 0, 128, 0.3);
+}
+
+/* Active/Click State */
+.desktop-icon:active {
+    background-color: #000080;
+}
+
+.desktop-icon:active span {
+    background-color: #000080;
+    color: white;
+    position: relative;
+    left: 1px;
+    top: 1px;
+}
+
+/* Dragging State */
+.desktop-icon.dragging {
+    opacity: 0.7;
+    background-color: #000080;
+}
+
+.desktop-icon.dragging span {
+    background-color: #000080;
+    color: white;
+}
+
+/* Selection Area */
+.selection-area {
+    position: absolute;
+    border: 1px dotted #fff;
+    background: rgba(0, 0, 128, 0.2);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Prevent text selection */
+.desktop-icon {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* Icon Label Focus */
+.desktop-icon.selected span {
+    background: #000080;
+    outline: 1px dotted #fff;
+    outline-offset: -1px;
+}
+
+/* Windows 98 Focus Rectangle */
+.desktop-icon:focus::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border: 1px dotted #000;
+    pointer-events: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .desktop-icons-container {
+        grid-template-columns: repeat(auto-fill, 65px);
+        gap: 6px;
+    }
+
+    .desktop-icon {
+        width: 65px;
+        height: 65px;
+    }
+
+    .desktop-icon img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .desktop-icon span {
+        font-size: 10px;
+    }
+} 

@@ -1,0 +1,127 @@
+/* Login Screen - Win98 Style */
+.login-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #008080;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9998;
+}
+
+.login-box {
+    background: #C0C0C0;
+    padding: 20px;
+    border: 2px solid;
+    border-color: #FFFFFF #808080 #808080 #FFFFFF;
+    box-shadow: 1px 1px 0 1px #FFFFFF inset, -1px -1px 0 1px #808080 inset;
+    text-align: center;
+    min-width: 300px;
+}
+
+.login-box h2 {
+    color: #000;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-family: 'MS Sans Serif', 'Tahoma', sans-serif;
+    font-weight: bold;
+}
+
+.user-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 2px solid #FFFFFF;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.user-select {
+    display: flex;
+    gap: 15px;
+    margin: 15px 0;
+    justify-content: center;
+}
+
+.user-account {
+    padding: 8px;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.user-account:hover {
+    background: #000080;
+    color: white;
+}
+
+.user-account img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+.user-account span {
+    display: block;
+    font-size: 11px;
+    font-family: 'MS Sans Serif', 'Tahoma', sans-serif;
+}
+
+.password-input {
+    display: flex;
+    gap: 5px;
+    margin: 15px 0;
+}
+
+.password-input input {
+    flex: 1;
+    padding: 3px 5px;
+    border: 2px solid;
+    border-color: #808080 #FFFFFF #FFFFFF #808080;
+    font-family: 'MS Sans Serif', 'Tahoma', sans-serif;
+    font-size: 11px;
+}
+
+.password-input button {
+    padding: 2px 10px;
+    border: 2px solid;
+    border-color: #FFFFFF #808080 #808080 #FFFFFF;
+    background: #C0C0C0;
+    color: #000;
+    font-family: 'MS Sans Serif', 'Tahoma', sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.password-input button:active {
+    border-color: #808080 #FFFFFF #FFFFFF #808080;
+    padding: 3px 9px 1px 11px;
+}
+
+#shutdown-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 12px;
+    margin: 0 auto;
+    border: 2px solid;
+    border-color: #FFFFFF #808080 #808080 #FFFFFF;
+    background: #C0C0C0;
+    color: #000;
+    font-family: 'MS Sans Serif', 'Tahoma', sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+#shutdown-btn:active {
+    border-color: #808080 #FFFFFF #FFFFFF #808080;
+    padding: 5px 11px 3px 13px;
+}
+
+#shutdown-btn img {
+    width: 16px;
+    height: 16px;
+} 

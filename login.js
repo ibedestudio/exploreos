@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
         splashScreen.style.display = 'none';
         loginScreen.style.display = 'flex';
+        playSound('startup');
     }, 3000);
 
     // Login functionality
@@ -25,10 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function handleLogin() {
         const selectedUser = document.querySelector('.user-account.selected span').textContent;
         if (selectedUser === 'Guest' || passwordInput.value === '1234') {
+            playSound('startup');
             loginScreen.style.display = 'none';
             desktop.style.display = 'block';
             initializeDesktop();
         } else {
+            playSound('error');
             alert('Incorrect password!');
         }
     }
@@ -56,10 +59,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-});
 
-function initializeDesktop() {
-    // Initialize all desktop functionality here
-    window.windowManager = new WindowManager();
-    // ... rest of desktop initialization
-} 
+    // Shutdown from login screen
+    const shutdownBtn = document.getElementById('shutdown-btn');
+    shutdownBtn.addEventListener('click', () => {
+        playSound('shutdown');
+        handleShutdown();
+    });
+}); 

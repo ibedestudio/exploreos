@@ -1,39 +1,53 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Hide desktop initially
+// Fungsi untuk menangani splash screen dan login
+function initializeLogin() {
     const desktop = document.querySelector('.desktop');
     const splashScreen = document.getElementById('splash-screen');
     const loginScreen = document.getElementById('login-screen');
     
+    // Sembunyikan desktop dan login screen di awal
     desktop.style.display = 'none';
     loginScreen.style.display = 'none';
+    splashScreen.style.display = 'flex'; // Pastikan splash screen terlihat
 
-    // Show splash screen
+    // Mulai animasi loading
     setTimeout(() => {
-        document.querySelector('.loading-progress').style.width = '100%';
+        const loadingBar = document.querySelector('.loading-progress');
+        if (loadingBar) {
+            loadingBar.style.width = '100%';
+        }
     }, 100);
 
-    // Show login screen after splash
+    // Tampilkan login screen setelah splash
     setTimeout(() => {
         splashScreen.style.display = 'none';
         loginScreen.style.display = 'flex';
+        playSound('startup');
     }, 3000);
+}
 
-    // Login functionality
+// Fungsi untuk menangani login
+function setupLogin() {
     const loginBtn = document.getElementById('login-btn');
     const passwordInput = document.getElementById('password');
+    const shutdownBtn = document.getElementById('shutdown-btn');
 
     function handleLogin() {
         const selectedUser = document.querySelector('.user-account.selected span').textContent;
         if (selectedUser === 'Guest' || passwordInput.value === '1234') {
-            loginScreen.style.display = 'none';
-            desktop.style.display = 'block';
+            playSound('startup');
+            document.getElementById('login-screen').style.display = 'none';
+            document.querySelector('.desktop').style.display = 'block';
             initializeDesktop();
         } else {
+            playSound('error');
             alert('Incorrect password!');
         }
     }
 
+    // Login button click
     loginBtn.addEventListener('click', handleLogin);
+
+    // Enter key in password input
     passwordInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') handleLogin();
     });
@@ -56,10 +70,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-});
 
-function initializeDesktop() {
-    // Initialize all desktop functionality here
-    window.windowManager = new WindowManager();
-    // ... rest of desktop initialization
-} 
+    // Shutdown button
+    shutdownBtn.addEventListener('click', () => {
+        playSound('shutdown');
+        handleShutdown();
+    });
+}
+
+// Inisialisasi saat DOM sudah dimuat
+document.addEventListener('DOMContentLoaded', () => {
+    initializeLogin();
+    setupLogin();
+}); 

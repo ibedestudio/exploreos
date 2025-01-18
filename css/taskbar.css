@@ -1,0 +1,206 @@
+/* Taskbar - Win98 Style */
+.taskbar {
+    height: 28px;
+    background: #C0C0C0;
+    border-top: 1px solid #FFFFFF;
+    box-shadow: 0 -1px 0 #808080;
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    z-index: 9999;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.start-button {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 6px;
+    font-family: 'MS Sans Serif', 'Tahoma', sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    border: 1px solid;
+    border-color: #FFFFFF #808080 #808080 #FFFFFF;
+    background: #C0C0C0;
+    color: #000;
+}
+
+.start-button:hover {
+    background: linear-gradient(to bottom, #4c98ff 0%, #3b78de 14%, #2f5bb3 100%);
+}
+
+.start-button img {
+    width: 18px;
+    height: 18px;
+    margin-right: 5px;
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.3));
+}
+
+/* Classic XP Start Menu */
+.start-menu {
+    position: fixed;
+    bottom: 30px;
+    left: 0;
+    width: 380px;
+    background: #fff;
+    border: 1px solid #0053aa;
+    display: none;
+    z-index: 1000;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+}
+
+/* User Info Section - XP Style */
+.user-info {
+    background: linear-gradient(135deg, #0c59b9 0%, #3983e5 100%);
+    padding: 12px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #1f4ba2;
+}
+
+.user-info img {
+    width: 48px;
+    height: 48px;
+    border: 2px solid #fff;
+    border-radius: 0;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+.user-info span {
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
+
+/* Menu Items - Classic Style */
+.menu-items {
+    padding: 2px;
+    background: #fff;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 6px 8px;
+    cursor: pointer;
+    margin: 1px;
+}
+
+.menu-item:hover {
+    background: linear-gradient(to right, #2b67cd 0%, #3983e5 100%);
+    color: white;
+}
+
+.menu-item img {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.2));
+}
+
+.menu-item span {
+    font-size: 11px;
+    font-family: 'Tahoma', sans-serif;
+}
+
+/* Menu Separator - XP Style */
+.menu-separator {
+    height: 1px;
+    background: #7ba7e1;
+    margin: 3px 2px;
+    border-bottom: 1px solid #fff;
+}
+
+/* Taskbar Programs - Classic Style */
+.taskbar-programs {
+    display: flex;
+    flex: 1;
+    margin: 0 4px;
+    gap: 2px;
+    height: 28px;
+    overflow: hidden;
+}
+
+.taskbar-program {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to bottom, #3b87ef 0%, #2b67cd 14%, #1f4ba2 100%);
+    padding: 0 8px;
+    color: white;
+    cursor: pointer;
+    min-width: 120px;
+    max-width: 180px;
+    border: 1px solid #1f4ba2;
+    height: 24px;
+    margin-top: 2px;
+    font-size: 11px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+}
+
+.taskbar-program.active {
+    background: linear-gradient(to bottom, #4c98ff 0%, #3b78de 14%, #2f5bb3 100%);
+    border: 1px solid #3983e5;
+}
+
+.taskbar-program img {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.3));
+}
+
+/* System Tray - XP Style */
+.taskbar-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    background: linear-gradient(to bottom, #C0C0C0 0%, #C0C0C0 100%);
+    border-left: 1px solid #C0C0C0;
+    padding: 0 2px;
+}
+
+.system-tray {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0 8px;
+    height: 100%;
+}
+
+.system-tray img {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.3));
+}
+
+.time {
+    color: rgb(46, 46, 46);
+    padding: 0 8px;
+    font-size: 11px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    font-family: 'Tahoma', sans-serif;
+}
+
+/* Start Menu Animation - Smoother */
+@keyframes slideUp {
+    from {
+        transform: translateY(5px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.start-menu.show {
+    display: block;
+    animation: slideUp 0.15s ease-out;
+} 

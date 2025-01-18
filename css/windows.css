@@ -1,0 +1,63 @@
+/* Windows */
+.window {
+    position: absolute;
+    background: #fff;
+    border: 1px solid #0053aa;
+    min-width: 300px;
+    min-height: 200px;
+    display: none;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    resize: both;
+}
+
+.window.active {
+    z-index: 100;
+}
+
+.window-header {
+    background: linear-gradient(to right, #0058b4 0%, #2b91e5 100%);
+    padding: 5px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+}
+
+.window-title {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.window-title img {
+    width: 16px;
+    height: 16px;
+}
+
+.window-controls {
+    display: flex;
+    gap: 2px;
+}
+
+.window-controls button {
+    width: 24px;
+    height: 24px;
+    border: 1px solid white;
+    background: #0058b4;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.window-controls button:hover {
+    background: #2b91e5;
+}
+
+.window-content {
+    padding: 10px;
+    height: calc(100% - 34px);
+    overflow: auto;
+} 
