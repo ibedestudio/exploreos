@@ -1,42 +1,32 @@
-// Fungsi untuk menangani splash screen dan login
-function initializeLogin() {
+document.addEventListener('DOMContentLoaded', () => {
     const desktop = document.querySelector('.desktop');
     const splashScreen = document.getElementById('splash-screen');
     const loginScreen = document.getElementById('login-screen');
     
-    // Sembunyikan desktop dan login screen di awal
     desktop.style.display = 'none';
     loginScreen.style.display = 'none';
-    splashScreen.style.display = 'flex'; // Pastikan splash screen terlihat
 
-    // Mulai animasi loading
+    // Show splash screen
     setTimeout(() => {
-        const loadingBar = document.querySelector('.loading-progress');
-        if (loadingBar) {
-            loadingBar.style.width = '100%';
-        }
+        document.querySelector('.loading-progress').style.width = '100%';
     }, 100);
 
-    // Tampilkan login screen setelah splash
+    // Show login screen after splash
     setTimeout(() => {
         splashScreen.style.display = 'none';
         loginScreen.style.display = 'flex';
         playSound('startup');
     }, 3000);
-}
 
-// Fungsi untuk menangani login
-function setupLogin() {
     const loginBtn = document.getElementById('login-btn');
     const passwordInput = document.getElementById('password');
-    const shutdownBtn = document.getElementById('shutdown-btn');
 
     function handleLogin() {
         const selectedUser = document.querySelector('.user-account.selected span').textContent;
         if (selectedUser === 'Guest' || passwordInput.value === '1234') {
             playSound('startup');
-            document.getElementById('login-screen').style.display = 'none';
-            document.querySelector('.desktop').style.display = 'block';
+            loginScreen.style.display = 'none';
+            desktop.style.display = 'block';
             initializeDesktop();
         } else {
             playSound('error');
@@ -44,22 +34,38 @@ function setupLogin() {
         }
     }
 
-    // Login button click
     loginBtn.addEventListener('click', handleLogin);
-
-    // Enter key in password input
     passwordInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') handleLogin();
     });
 
-    // User account selection
     document.querySelectorAll('.user-account').forEach(account => {
+        const userIcon = account.querySelector('img');
+        const defaultSrc = userIcon.src;
+
+        account.addEventListener('mouseenter', () => {
+            userIcon.src = defaultSrc.replace('.png', '_hover.png'); // Ganti gambar saat hover
+        });
+
+        account.addEventListener('mouseleave', () => {
+            userIcon.src = defaultSrc; // Kembali ke gambar default saat tidak hover
+        });
+
         account.addEventListener('click', () => {
-            document.querySelectorAll('.user-account').forEach(a => 
-                a.classList.remove('selected')
-            );
+            document.querySelectorAll('.user-account').forEach(a => {
+                a.classList.remove('selected');
+                const icon = a.querySelector('img');
+                icon.src = icon.src.replace('_selected', '');
+            });
             account.classList.add('selected');
-            
+
+            const userType = account.getAttribute('data-user');
+            if (userType === 'ibedes') {
+                userIcon.src = 'img/user-ibedes_selected.png';
+            } else {
+                userIcon.src = 'https://cdn.pixabay.com/photo/2024/03/11/19/15/ai-generated-8627457_1280.png';
+            }
+
             const isGuest = account.querySelector('span').textContent === 'Guest';
             passwordInput.disabled = isGuest;
             if (isGuest) {
@@ -71,15 +77,9 @@ function setupLogin() {
         });
     });
 
-    // Shutdown button
+    const shutdownBtn = document.getElementById('shutdown-btn');
     shutdownBtn.addEventListener('click', () => {
         playSound('shutdown');
         handleShutdown();
     });
-}
-
-// Inisialisasi saat DOM sudah dimuat
-document.addEventListener('DOMContentLoaded', () => {
-    initializeLogin();
-    setupLogin();
 }); 

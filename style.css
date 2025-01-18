@@ -4,14 +4,6 @@
     box-sizing: border-box;
 }
 
-.desktop {
-    height: 100vh;
-    background-image: url('https://i.imgur.com/eJLZvNt.jpg');
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    overflow: hidden;
-}
 
 /* Desktop Icons */
 .desktop-icon {
